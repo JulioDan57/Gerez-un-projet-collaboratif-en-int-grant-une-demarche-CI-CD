@@ -25,6 +25,7 @@ jobs:
           java-version: 11
 
       - name: Build & Test Backend
+        working-directory: back
         run: mvnw clean verify
 
   # ========================
