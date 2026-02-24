@@ -44,7 +44,8 @@ jobs:
           node-version: 18
 
       - run: npm ci
-      - run: npm run test -- --watch=false --code-coverage
+      - run: npm run test -- --watch=false --code-coverage --browsers=ChromeHeadless
+        working-directory: front
 
   # ========================
   # SONAR ANALYSIS
