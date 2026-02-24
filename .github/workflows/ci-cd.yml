@@ -63,6 +63,7 @@ jobs:
             -Dsonar.projectKey=JulioDan57_Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
             -Dsonar.organization=juliodan57
             -Dsonar.host.url=https://sonarcloud.io
+            -Dsonar.java.binaries=back/target/classes
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
