@@ -25,7 +25,7 @@ jobs:
           java-version: 11
 
       - name: Build & Test Backend
-        run: ./mvnw clean verify
+        run: mvnw clean verify
 
   # ========================
   # FRONTEND - TEST + COVERAGE
