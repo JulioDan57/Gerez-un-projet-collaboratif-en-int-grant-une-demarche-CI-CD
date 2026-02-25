@@ -56,6 +56,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 11
+
+      - name: Build backend (required for Sonar)
+        run: mvn clean compile
+        working-directory: back
       - name: Sonar Scan
         uses: SonarSource/sonarqube-scan-action@v2
         with:
