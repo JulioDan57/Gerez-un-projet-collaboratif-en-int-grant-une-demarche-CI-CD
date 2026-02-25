@@ -1,14 +1,17 @@
-FROM node:latest as build
+# ===== BUILD STAGE =====
+FROM node:18 AS build
+WORKDIR /app
 
-WORKDIR /usr/local/app
-COPY ./ /usr/local/app/
+COPY package*.json ./
+RUN npm ci
 
-RUN yarn
-RUN npm run build
- 
-FROM nginx:latest as production
+COPY . .
+RUN npm run build -- --configuration production
 
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=build /usr/local/app/dist/bobapp /usr/share/nginx/html
+# ===== NGINX STAGE =====
+FROM nginx:alpine
+
+COPY --from=build /app/dist/bobapp /usr/share/nginx/html
 
 EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
