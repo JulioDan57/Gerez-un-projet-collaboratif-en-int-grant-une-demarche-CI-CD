@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.openclassrooms.bobapp.service.JokeService;
-// trigger CI"
 
 @RestController
 @RequestMapping("api/joke")
@@ -24,4 +23,3 @@ public class JokeController {
         return ResponseEntity.ok(this.jokeService.getRandomJoke());
     }
 }
-// trigger CI

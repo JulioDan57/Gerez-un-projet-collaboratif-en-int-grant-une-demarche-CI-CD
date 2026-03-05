@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Joke } from '../model/joke.model';
-// trigger CI"
 
 @Injectable({
   providedIn: 'root'
@@ -25,4 +24,4 @@ export class JokesService {
     return this.subject.asObservable();
   }
 }
-// trigger CI
+
