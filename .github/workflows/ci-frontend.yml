@@ -37,12 +37,5 @@ jobs:
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v2
-        with:
-          args: >
-            -Dsonar.projectKey=BobApp_Front
-            -Dsonar.organization=juliodan57
-            -Dsonar.sources=front/src
-            -Dsonar.javascript.lcov.reportPaths=front/coverage/lcov.info
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_FRONT }}
-          SONAR_HOST_URL: https://sonarcloud.io
