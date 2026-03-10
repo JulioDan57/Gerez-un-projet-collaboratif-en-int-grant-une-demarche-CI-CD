@@ -5,9 +5,12 @@ on:
   push:
     paths:
       - 'back/**'
+    branches: [ main ]          
   pull_request:
     paths:
       - 'back/**'
+    branches: [ main ]
+    types: [ opened, synchronize, reopened ]
 
 jobs:
   build-test-sonar:
@@ -25,7 +28,12 @@ jobs:
           distribution: temurin
           java-version: 11
 
-      - name: Build, Test and SonarCloud analysis
-        run: mvn -B clean verify sonar:sonar
+      - name: Run tests
+        run: mvn clean verify
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarqube-scan-action@v2
+        with:
+          projectBaseDir: back
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_BACK }}
