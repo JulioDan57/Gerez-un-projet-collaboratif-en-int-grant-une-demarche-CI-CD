@@ -27,11 +27,12 @@ jobs:
           distribution: temurin
           java-version: 17   # <-- Changement ici
 
-      - name: Build, Test and SonarCloud analysis
-        run: |
-          mvn -B clean verify sonar:sonar \
-            -Dsonar.projectKey=BobApp_Back \
-            -Dsonar.organization=juliodan57 \
-            -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.login=${{ secrets.SONAR_TOKEN_BACK }} \
-            -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+      - name: Run tests
+        run: mvn clean verify
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarqube-scan-action@v2
+        with:
+          projectBaseDir: back
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_BACK }}
