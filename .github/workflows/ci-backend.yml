@@ -28,12 +28,7 @@ jobs:
           distribution: temurin
           java-version: 11
 
-      - name: Run tests
-        run: mvn clean verify
-
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarqube-scan-action@v2
-        with:
-          projectBaseDir: back
+      - name: Build, Test and SonarCloud analysis
+        run: mvn -B clean verify sonar:sonar
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_BACK }}
