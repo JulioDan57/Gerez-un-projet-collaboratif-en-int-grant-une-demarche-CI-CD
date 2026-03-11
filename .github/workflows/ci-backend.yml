@@ -1,6 +1,5 @@
 name: CI Backend
 
-
 on:
   push:
     paths:
@@ -29,7 +28,8 @@ jobs:
           java-version: 11
 
       - name: Build, Test and SonarCloud analysis
-        run: mvn -B clean verify sonar:sonar \
+        run: |
+          mvn -B clean verify sonar:sonar \
             -Dsonar.projectKey=BobApp_Back \
             -Dsonar.organization=juliodan57 \
             -Dsonar.host.url=https://sonarcloud.io \
