@@ -23,21 +23,4 @@ public class JokeController {
         return ResponseEntity.ok(this.jokeService.getRandomJoke());
     }
 }
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
+
