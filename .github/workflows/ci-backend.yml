@@ -5,7 +5,7 @@ on:
   push:
     paths:
       - 'back/**'
-    branches: [ main ]      
+    branches: [ "feature/*", "release/*", "hotfix/*", "develop" ]      
   pull_request:
     paths:
       - 'back/**'
