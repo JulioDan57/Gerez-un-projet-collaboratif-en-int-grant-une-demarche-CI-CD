@@ -31,6 +31,12 @@ jobs:
       - name: Run tests
         run: mvn clean verify
 
+      - name: Upload JaCoCo report
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-report
+          path: back/target/site/jacoco
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v2
         with:
