@@ -24,26 +24,3 @@ export class JokesService {
     return this.subject.asObservable();
   }
 }
-
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-// trigger CI
-<<<<<<< HEAD
-=======
-// trigger CI
-// trigger CI
-// trigger CI
->>>>>>> main
-// trigger CI
