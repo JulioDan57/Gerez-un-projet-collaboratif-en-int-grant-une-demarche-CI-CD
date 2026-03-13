@@ -5,12 +5,12 @@ on:
   push:
     paths:
       - 'back/**'
-    branches: [ "feature/*", "release/*", "hotfix/*", "develop" ]          
+    branches: [ main ]      
   pull_request:
     paths:
       - 'back/**'
-    branches: [ main ]
-    types: [ opened, synchronize, reopened ]
+    branches: [ main ]     
+    types: [ opened, synchronize, reopened ]               
 
 jobs:
   build-test-sonar:
@@ -26,16 +26,10 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 11   # <-- Changement ici
+          java-version: 11
 
       - name: Run tests
         run: mvn clean verify
-
-      - name: Upload JaCoCo report
-        uses: actions/upload-artifact@v4
-        with:
-          name: jacoco-report
-          path: back/target/site/jacoco
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v2
