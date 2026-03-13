@@ -38,3 +38,10 @@ public class JokeController {
 // trigger CI
 // trigger CI
 // trigger CI
+<<<<<<< HEAD
+=======
+// trigger CI
+// trigger CI
+// trigger CI
+>>>>>>> main
+// trigger CI

@@ -5,13 +5,13 @@ on:
   push:
     paths:
       - 'front/**'
-    branches: [ "feature/*", "release/*", "hotfix/*", "develop" ]  
+    branches: [ main ]      
   pull_request:
     paths:
       - 'front/**'
     branches: [ main ]
     types: [ opened, synchronize, reopened ]
-
+    
 jobs:
   build-test-sonar:
     runs-on: ubuntu-latest
