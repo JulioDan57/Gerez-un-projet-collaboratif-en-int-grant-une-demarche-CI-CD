@@ -6,10 +6,7 @@ on:
     types: [ opened, synchronize, reopened ]
   push:
     branches: [ main ]  
-#  push:
-#    branches:
-#      - main
-#      - master
+
 concurrency:
   group: cd-main
   cancel-in-progress: true
@@ -50,7 +47,6 @@ jobs:
   push-docker:
     needs: [build-back, build-front]
     runs-on: ubuntu-latest
-#    if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/main') 
     if: github.event_name == 'push' && github.ref == 'refs/heads/main' 
 
     steps:
